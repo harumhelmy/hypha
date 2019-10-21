@@ -2,15 +2,15 @@ import urllib
 
 from django.contrib.messages.storage.fallback import FallbackStorage
 from django.contrib.sessions.middleware import SessionMiddleware
-from django.test import override_settings, RequestFactory
+from django.test import RequestFactory, override_settings
 from django.urls import reverse_lazy
 
 from opentech.apply.activity.models import Activity
 from opentech.apply.determinations.models import ACCEPTED, REJECTED
 from opentech.apply.determinations.views import BatchDeterminationCreateView
-from opentech.apply.users.tests.factories import StaffFactory, UserFactory
 from opentech.apply.funds.models import ApplicationSubmission
 from opentech.apply.funds.tests.factories import ApplicationSubmissionFactory
+from opentech.apply.users.tests.factories import StaffFactory, UserFactory
 from opentech.apply.utils.testing import BaseViewTestCase
 
 from .factories import DeterminationFactory

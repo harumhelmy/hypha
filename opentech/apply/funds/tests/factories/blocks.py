@@ -1,5 +1,6 @@
 import json
 import random
+
 import factory
 
 from opentech.apply.funds import blocks

@@ -15,7 +15,10 @@ from opentech.apply.projects.models import (
     Project,
     ProjectApprovalForm,
 )
-from opentech.apply.stream_forms.testing.factories import FormDataFactory, FormFieldsBlockFactory
+from opentech.apply.stream_forms.testing.factories import (
+    FormDataFactory,
+    FormFieldsBlockFactory,
+)
 from opentech.apply.users.tests.factories import StaffFactory, UserFactory
 
 ADDRESS = {

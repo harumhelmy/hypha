@@ -1,4 +1,5 @@
 import os
+
 from django.urls import reverse
 
 from opentech.apply.stream_forms.files import StreamFieldFile

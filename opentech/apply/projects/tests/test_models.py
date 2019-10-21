@@ -11,14 +11,14 @@ from ..models import (
     PAID,
     SUBMITTED,
     UNDER_REVIEW,
-    Project,
     PaymentRequest,
+    Project,
 )
 from .factories import (
     DocumentCategoryFactory,
     PacketFileFactory,
     PaymentRequestFactory,
-    ProjectFactory
+    ProjectFactory,
 )
 
 

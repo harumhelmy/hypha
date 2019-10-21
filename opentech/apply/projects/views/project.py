@@ -18,7 +18,7 @@ from django.views.generic import (
     DetailView,
     FormView,
     TemplateView,
-    UpdateView
+    UpdateView,
 )
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
@@ -34,10 +34,7 @@ from opentech.apply.utils.views import (
 )
 
 from ..files import get_files
-from ..filters import (
-    PaymentRequestListFilter,
-    ProjectListFilter,
-)
+from ..filters import PaymentRequestListFilter, ProjectListFilter
 from ..forms import (
     ApproveContractForm,
     CreateApprovalForm,
@@ -50,7 +47,7 @@ from ..forms import (
     StaffUploadContractForm,
     UpdateProjectLeadForm,
     UploadContractForm,
-    UploadDocumentForm
+    UploadDocumentForm,
 )
 from ..models import (
     CONTRACTING,
@@ -60,15 +57,12 @@ from ..models import (
     Contract,
     PacketFile,
     PaymentRequest,
-    Project
+    Project,
 )
-from ..tables import (
-    PaymentRequestsListTable,
-    ProjectsListTable
-)
-
+from ..tables import PaymentRequestsListTable, ProjectsListTable
 
 # APPROVAL VIEWS
+
 
 @method_decorator(staff_required, name='dispatch')
 class SendForApprovalView(DelegatedViewMixin, UpdateView):

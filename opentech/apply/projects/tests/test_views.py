@@ -13,19 +13,13 @@ from opentech.apply.users.tests.factories import (
     ReviewerFactory,
     StaffFactory,
     SuperUserFactory,
-    UserFactory
+    UserFactory,
 )
 from opentech.apply.utils.testing.tests import BaseViewTestCase
 
-from ..forms import SetPendingForm
 from ..files import get_files
-from ..models import (
-    CHANGES_REQUESTED,
-    COMMITTED,
-    CONTRACTING,
-    IN_PROGRESS,
-    SUBMITTED,
-)
+from ..forms import SetPendingForm
+from ..models import CHANGES_REQUESTED, COMMITTED, CONTRACTING, IN_PROGRESS, SUBMITTED
 from ..views import ContractsMixin, ProjectDetailSimplifiedView
 from .factories import (
     ContractFactory,
@@ -33,7 +27,7 @@ from .factories import (
     PacketFileFactory,
     PaymentReceiptFactory,
     PaymentRequestFactory,
-    ProjectFactory
+    ProjectFactory,
 )
 
 

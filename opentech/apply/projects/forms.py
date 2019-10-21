@@ -24,9 +24,8 @@ from .models import (
     PacketFile,
     PaymentReceipt,
     PaymentRequest,
-    Project
+    Project,
 )
-
 
 User = get_user_model()
 

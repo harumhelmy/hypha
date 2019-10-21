@@ -1,70 +1,87 @@
 from copy import copy
 
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import UserPassesTestMixin
-from django.contrib import messages
 from django.core.exceptions import PermissionDenied
 from django.db.models import Count, F, Q
-from django.http import HttpResponseRedirect, Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import CreateView, DetailView, FormView, ListView, UpdateView, DeleteView
-
+from django.views.generic import (
+    CreateView,
+    DeleteView,
+    DetailView,
+    FormView,
+    ListView,
+    UpdateView,
+)
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
-
 from wagtail.core.models import Page
 
+from opentech.apply.activity.messaging import MESSAGES, messenger
 from opentech.apply.activity.views import (
-    AllActivityContextMixin,
     ActivityContextMixin,
+    AllActivityContextMixin,
     CommentFormView,
     DelegatedViewMixin,
 )
-from opentech.apply.activity.messaging import messenger, MESSAGES
-from opentech.apply.determinations.views import BatchDeterminationCreateView, DeterminationCreateOrUpdateView
+from opentech.apply.determinations.views import (
+    BatchDeterminationCreateView,
+    DeterminationCreateOrUpdateView,
+)
 from opentech.apply.projects.forms import CreateProjectForm
 from opentech.apply.projects.models import Project
 from opentech.apply.review.views import ReviewContextMixin
 from opentech.apply.users.decorators import staff_required
 from opentech.apply.utils.storage import PrivateMediaView
-from opentech.apply.utils.views import DelegateableListView, DelegateableView, ViewDispatcher
+from opentech.apply.utils.views import (
+    DelegateableListView,
+    DelegateableView,
+    ViewDispatcher,
+)
 
 from .differ import compare
 from .files import generate_submission_file_path
 from .forms import (
-    BatchUpdateSubmissionLeadForm,
-    BatchUpdateReviewersForm,
     BatchProgressSubmissionForm,
+    BatchUpdateReviewersForm,
+    BatchUpdateSubmissionLeadForm,
     ProgressSubmissionForm,
     ScreeningSubmissionForm,
+    UpdateMetaTermsForm,
+    UpdatePartnersForm,
     UpdateReviewersForm,
     UpdateSubmissionLeadForm,
-    UpdatePartnersForm,
-    UpdateMetaTermsForm,
 )
 from .models import (
-    ApplicationSubmission,
     ApplicationRevision,
-    RoundsAndLabs,
+    ApplicationSubmission,
+    LabBase,
     RoundBase,
-    LabBase
+    RoundsAndLabs,
 )
 from .paginators import LazyPaginator
 from .permissions import is_user_has_access_to_view_submission
 from .tables import (
     AdminSubmissionsTable,
     ReviewerSubmissionsTable,
-    RoundsTable,
     RoundsFilter,
+    RoundsTable,
     SubmissionFilterAndSearch,
     SubmissionReviewerFilterAndSearch,
     SummarySubmissionsTable,
 )
-from .workflow import INITIAL_STATE, STAGE_CHANGE_ACTIONS, PHASES_MAPPING, review_statuses
+from .workflow import (
+    INITIAL_STATE,
+    PHASES_MAPPING,
+    STAGE_CHANGE_ACTIONS,
+    review_statuses,
+)
 
 
 class BaseAdminSubmissionsTable(SingleTableMixin, FilterView):

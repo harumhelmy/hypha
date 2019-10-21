@@ -12,16 +12,13 @@ from opentech.apply.funds.tables import (
     SubmissionsTable,
     SummarySubmissionsTable,
     SummarySubmissionsTableWithRole,
-    review_filter_for_user
+    review_filter_for_user,
 )
 from opentech.apply.projects.filters import ProjectListFilter
-from opentech.apply.projects.models import (
-    PaymentRequest,
-    Project
-)
+from opentech.apply.projects.models import PaymentRequest, Project
 from opentech.apply.projects.tables import (
     PaymentRequestsDashboardTable,
-    ProjectsDashboardTable
+    ProjectsDashboardTable,
 )
 from opentech.apply.utils.views import ViewDispatcher
 

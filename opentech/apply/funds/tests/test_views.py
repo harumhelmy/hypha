@@ -8,15 +8,13 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
 
-from opentech.apply.activity.models import Activity, TEAM
-from opentech.apply.projects.models import Project
-from opentech.apply.projects.tests.factories import ProjectFactory
+from opentech.apply.activity.models import TEAM, Activity
 from opentech.apply.determinations.tests.factories import DeterminationFactory
 from opentech.apply.funds.tests.factories import (
-    ApplicationSubmissionFactory,
     ApplicationRevisionFactory,
-    AssignedWithRoleReviewersFactory,
+    ApplicationSubmissionFactory,
     AssignedReviewersFactory,
+    AssignedWithRoleReviewersFactory,
     InvitedToProposalFactory,
     LabSubmissionFactory,
     ReviewerRoleFactory,
@@ -24,12 +22,14 @@ from opentech.apply.funds.tests.factories import (
     SealedRoundFactory,
     SealedSubmissionFactory,
 )
+from opentech.apply.projects.models import Project
+from opentech.apply.projects.tests.factories import ProjectFactory
 from opentech.apply.review.tests.factories import ReviewFactory
 from opentech.apply.users.tests.factories import (
+    ApplicantFactory,
     ReviewerFactory,
     StaffFactory,
     SuperUserFactory,
-    ApplicantFactory,
 )
 from opentech.apply.utils.testing import make_request
 from opentech.apply.utils.testing.tests import BaseViewTestCase

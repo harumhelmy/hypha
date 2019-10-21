@@ -2,21 +2,6 @@ from django.urls import include, path
 
 from opentech.apply.projects import urls as projects_urls
 
-from .views import (
-    RevisionCompareView,
-    RevisionListView,
-    RoundListView,
-    SubmissionsByRound,
-    SubmissionsByStatus,
-    SubmissionDetailView,
-    SubmissionEditView,
-    SubmissionListView,
-    SubmissionOverviewView,
-    SubmissionSealedView,
-    SubmissionDeleteView,
-    SubmissionPrivateMediaView,
-    SubmissionDetailSimplifiedView
-)
 from .api_views import (
     CommentEdit,
     CommentList,
@@ -24,10 +9,24 @@ from .api_views import (
     RoundLabDetail,
     RoundLabList,
     SubmissionAction,
-    SubmissionList,
     SubmissionDetail,
+    SubmissionList,
 )
-
+from .views import (
+    RevisionCompareView,
+    RevisionListView,
+    RoundListView,
+    SubmissionDeleteView,
+    SubmissionDetailSimplifiedView,
+    SubmissionDetailView,
+    SubmissionEditView,
+    SubmissionListView,
+    SubmissionOverviewView,
+    SubmissionPrivateMediaView,
+    SubmissionsByRound,
+    SubmissionsByStatus,
+    SubmissionSealedView,
+)
 
 revision_urls = ([
     path('', RevisionListView.as_view(), name='list'),

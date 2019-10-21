@@ -5,14 +5,14 @@ from django.contrib.auth import get_user_model
 from opentech.apply.funds.tables import (
     Select2ModelMultipleChoiceFilter,
     Select2MultipleChoiceFilter,
-    get_used_funds
+    get_used_funds,
 )
 
 from .models import (
     PROJECT_STATUS_CHOICES,
     REQUEST_STATUS_CHOICES,
     PaymentRequest,
-    Project
+    Project,
 )
 
 User = get_user_model()

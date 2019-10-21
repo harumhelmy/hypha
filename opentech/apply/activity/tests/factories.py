@@ -3,7 +3,14 @@ import uuid
 import factory
 from django.utils import timezone
 
-from opentech.apply.activity.models import Activity, Event, TEAM, Message, MESSAGES, REVIEWER
+from opentech.apply.activity.models import (
+    MESSAGES,
+    REVIEWER,
+    TEAM,
+    Activity,
+    Event,
+    Message,
+)
 from opentech.apply.funds.tests.factories import ApplicationSubmissionFactory
 from opentech.apply.users.tests.factories import UserFactory
 

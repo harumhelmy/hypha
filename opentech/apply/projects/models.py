@@ -4,34 +4,30 @@ import json
 import logging
 import os
 
-
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.postgres.fields import JSONField
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
-from django.db.models import F, Max, Sum, Value as V
+from django.db.models import F, Max, Sum
+from django.db.models import Value as V
 from django.db.models.functions import Coalesce
 from django.db.models.signals import post_delete
 from django.dispatch.dispatcher import receiver
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import ugettext as _
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
-from wagtail.admin.edit_handlers import (
-    FieldPanel,
-    StreamFieldPanel,
-)
 from wagtail.core.fields import StreamField
 
+from addressfield.fields import ADDRESS_FIELDS_ORDER
+from opentech.apply.activity.messaging import MESSAGES, messenger
 from opentech.apply.funds.models.mixins import AccessFormData
 from opentech.apply.stream_forms.blocks import FormFieldsBlock
 from opentech.apply.stream_forms.files import StreamFieldDataEncoder
 from opentech.apply.stream_forms.models import BaseStreamForm
-
-from addressfield.fields import ADDRESS_FIELDS_ORDER
-from opentech.apply.activity.messaging import MESSAGES, messenger
 from opentech.apply.utils.storage import PrivateStorage
 
 logger = logging.getLogger(__name__)

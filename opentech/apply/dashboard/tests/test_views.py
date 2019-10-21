@@ -1,6 +1,6 @@
 from opentech.apply.funds.tests.factories import (
-    ApplicationSubmissionFactory,
     ApplicationRevisionFactory,
+    ApplicationSubmissionFactory,
     InvitedToProposalFactory,
 )
 from opentech.apply.projects.models import (
@@ -13,7 +13,7 @@ from opentech.apply.projects.models import (
 )
 from opentech.apply.projects.tests.factories import (
     PaymentRequestFactory,
-    ProjectFactory
+    ProjectFactory,
 )
 from opentech.apply.review.tests.factories import ReviewFactory, ReviewOpinionFactory
 from opentech.apply.users.groups import APPROVER_GROUP_NAME
@@ -21,7 +21,7 @@ from opentech.apply.users.tests.factories import (
     ApplicantFactory,
     GroupFactory,
     ReviewerFactory,
-    StaffFactory
+    StaffFactory,
 )
 from opentech.apply.utils.testing.tests import BaseViewTestCase
 

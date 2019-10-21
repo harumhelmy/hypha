@@ -6,7 +6,7 @@ from opentech.apply.determinations.models import Determination
 from opentech.apply.projects.models import Contract
 from opentech.apply.review.models import Review
 
-from ..models import TEAM, ALL, REVIEWER
+from ..models import ALL, REVIEWER, TEAM
 
 register = template.Library()
 
